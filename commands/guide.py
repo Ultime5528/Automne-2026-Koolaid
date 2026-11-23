@@ -1,4 +1,3 @@
-
 from ultime.autoproperty import autoproperty, FloatProperty
 from ultime.linear import manualmovelinear, resetlinear
 from ultime.linear.movelinear import MoveLinear

@@ -12,7 +12,7 @@ class Descend(Command):
         pass
 
     def execute(self):
-        self._arm.descend()
+        self._arm.move_down_arm()
 
     def isFinished(self) -> bool:
         return self._arm.switch_down.isPressed()

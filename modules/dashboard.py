@@ -8,7 +8,6 @@ from wpilib import SmartDashboard
 from wpimath.geometry import Pose2d
 
 
-
 from commands.grabber.grab import Grab
 from commands.grabber.ungrab import Ungrab
 from commands.arm.arise import Arise
@@ -26,7 +25,6 @@ class DashboardModule(Module):
     def __init__(
         self,
         hardware: HardwareModule,
-
         module_list: ModuleList,
     ):
         super().__init__()
@@ -34,7 +32,6 @@ class DashboardModule(Module):
         self._module_list = module_list
         self.setupCopilotCommands(hardware)
         self.setupCommands(hardware)
-
 
     def setupCopilotCommands(self, hardware: HardwareModule):
         pass
@@ -57,7 +54,6 @@ class DashboardModule(Module):
         putCommandOnDashboard("Grabber", Grab(hardware.grabber))
         putCommandOnDashboard("Grabber", Ungrab(hardware.grabber))
 
-
         """
         Hugger
         """
@@ -66,16 +62,13 @@ class DashboardModule(Module):
         Feeder
         """
 
-
         """
         Pivot
         """
 
-
         """
         Group
         """
-
 
     def robotInit(self) -> None:
         for subsystem in self._hardware.subsystems:
@@ -83,7 +76,6 @@ class DashboardModule(Module):
 
         for module in self._module_list.modules:
             Logger.getInstance().addLoggable(module)
-
 
         wpilib.SmartDashboard.putData(
             "CommandScheduler", CommandScheduler.getInstance()

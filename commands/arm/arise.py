@@ -10,13 +10,12 @@ class Arise(Command):
 
     def initialize(self):
         pass
-    def execute(self):
-        self._arm.rise()
 
+    def execute(self):
+        self._arm.move_up_arm()
 
     def isFinished(self) -> bool:
-        return  self._arm.switch_up.isPressed()
-
+        return self._arm.switch_up.isPressed()
 
     def end(self, interrupted: bool) -> None:
         self._arm.maintain_arm()

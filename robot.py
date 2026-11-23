@@ -20,17 +20,8 @@ class Robot(ModuleRobot):
 
         self.hardware = self.addModule(HardwareModule())
 
-
-
-
-
         self.control = self.addModule(ControlModule(self.hardware))
 
-        self.dashboard = self.addModule(
-            DashboardModule(
-                self.hardware, self.modules
-            )
-        )
+        self.dashboard = self.addModule(DashboardModule(self.hardware, self.modules))
         self.logging = self.addModule(LoggingModule())
         self.property_save_checker = self.addModule(PropertySaveCheckerModule())
-
