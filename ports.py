@@ -14,6 +14,7 @@ Order port numbers, ex:
 
 class CAN(Immutable):
    arm_motor = 1
+   slide_motor = 2
 
 class PWM(Immutable):
     grabber_motor = 1
