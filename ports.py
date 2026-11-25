@@ -18,7 +18,7 @@ class CAN(Immutable):
 
 class PWM(Immutable):
     grabber_motor = 1
-
+    funnel_servo = 2
 
 class DIO(Immutable):
     arm_switch_up = 1

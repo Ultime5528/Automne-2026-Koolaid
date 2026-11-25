@@ -1,9 +1,7 @@
 import commands2
 from wpilib import PowerDistribution
 
-
-
-
+from subsystems.funnel import Funnel
 from subsystems.grabber import Grabber
 from subsystems.arm import Arm
 from ultime.module import Module
@@ -23,7 +21,7 @@ class HardwareModule(Module):
 
         self.grabber = self.addSubsystem(Grabber())
         self.arm = self.addSubsystem(Arm())
-
+        self.funnel = self.addSubsystem(Funnel())
 
 
 

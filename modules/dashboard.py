@@ -14,6 +14,8 @@ from commands.grabber.ungrab import Ungrab
 from commands.arm.arise import Arise
 from commands.arm.descend import Descend
 from commands.arm.release import Release
+from commands.funnel.open import Open
+from commands.funnel.close import Close
 from commands.guide import ManualMoveGuide, ResetGuide, MoveGuide
 from modules.hardware import HardwareModule
 from subsystems.arm import Arm
@@ -63,9 +65,10 @@ class DashboardModule(Module):
         """
 
         """
-        Feeder
+        Funnel
         """
-
+        putCommandOnDashboard("Funnel",Open(hardware.funnel))
+        putCommandOnDashboard("Funnel",Close(hardware.funnel))
 
         """
         Pivot
