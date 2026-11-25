@@ -21,6 +21,12 @@ class Grabber(Subsystem):
             ports.CAN.slide_motor, rev.SparkMax.MotorType.kBrushless
         )
         self.switch = Switch(Switch.Type.NormallyOpen, ports.DIO.grab_switch)
+    def logValues(self):
+        super().logValues()
+        self.log("have_grabbed", self.have_grabbed())
+
+    def have_grabbed(self):
+        return self.switch.isPressed()
 
     def grab_cylinder(self):
         self._motor.set(self.speed_grab)

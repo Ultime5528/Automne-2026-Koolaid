@@ -15,7 +15,7 @@ class Descend(Command):
         self._arm.move_down_arm()
 
     def isFinished(self) -> bool:
-        return self._arm.switch_down.isPressed()
+        return self._arm.is_down()
 
     def end(self, interrupted: bool) -> None:
         self._arm.maintain_arm()

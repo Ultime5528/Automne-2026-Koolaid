@@ -15,7 +15,7 @@ class Arise(Command):
         self._arm.move_up_arm()
 
     def isFinished(self) -> bool:
-        return self._arm.switch_up.isPressed()
+        return self._arm.is_up()
 
     def end(self, interrupted: bool) -> None:
         self._arm.maintain_arm()

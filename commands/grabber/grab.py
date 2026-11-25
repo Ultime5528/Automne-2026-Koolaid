@@ -13,7 +13,7 @@ class Grab(Command):
         self._grabber.grab_cylinder()
 
     def isFinished(self) -> bool:
-        return self._grabber.switch.isPressed()
+        return self._grabber.have_grabbed()
 
     def end(self, interrupted: bool) -> None:
         self._grabber.maintain_cylinder()

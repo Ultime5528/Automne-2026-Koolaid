@@ -16,19 +16,26 @@ class Arm(Subsystem):
 
     def __init__(self):
         super().__init__()
-        self.arm_state = ArmState.off
+
         self._motor = rev.SparkFlex(
             ports.CAN.arm_motor, rev.SparkFlex.MotorType.kBrushless
         )
-        self.switch_up = Switch(Switch.Type.NormallyOpen, ports.DIO.arm_switch_up)
-        self.switch_down = Switch(Switch.Type.NormallyOpen, ports.DIO.arm_switch_down)
+        self._switch_up = Switch(Switch.Type.NormallyOpen, ports.DIO.arm_switch_up)
+        self._switch_down = Switch(Switch.Type.NormallyOpen, ports.DIO.arm_switch_down)
 
     def move_up_arm(self):
         self._motor.set(self.speed_up)
 
     def logValues(self):
         super().logValues()
-        self.log("arm_state", str(self.arm_state))
+        self.log("is_up", self.is_up())
+        self.log("is_down", self.is_down())
+
+    def is_up(self) -> bool:
+        return self._switch_up.isPressed()
+
+    def is_down(self) -> bool:
+        return self._switch_down.isPressed()
 
     def move_down_arm(self):
         self._motor.set(self.speed_down)

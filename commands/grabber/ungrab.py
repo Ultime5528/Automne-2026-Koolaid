@@ -13,7 +13,7 @@ class Ungrab(Command):
         self._grabber.ungrab_cylinder()
 
     def isFinished(self) -> bool:
-        return not self._grabber.switch.isPressed()
+        return not self._grabber.have_grabbed()
 
     def end(self, interrupted: bool) -> None:
         self._grabber.stop()
