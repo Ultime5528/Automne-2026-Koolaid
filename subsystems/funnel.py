@@ -14,8 +14,15 @@ class Funnel(Subsystem):
         super().__init__()
         self._funnel_servo = wpilib.Servo(ports.PWM.funnel_servo)
 
+    def logValues(self):
+        super().logValues()
+        self.log("position", self.angle())
+
     def open(self):
         self._funnel_servo.setAngle(self.angle_open)
+
+    def angle(self):
+        return self._funnel_servo.getAngle()
 
     def close(self):
         self._funnel_servo.setAngle(self.angle_close)
