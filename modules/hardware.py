@@ -17,13 +17,9 @@ class HardwareModule(Module):
         self.panel_1 = commands2.button.CommandJoystick(1)
         self.panel_2 = commands2.button.CommandJoystick(2)
 
-
-
         self.grabber = self.addSubsystem(Grabber())
         self.arm = self.addSubsystem(Arm())
         self.funnel = self.addSubsystem(Funnel())
-
-
 
         self.pdp = PowerDistribution()
 

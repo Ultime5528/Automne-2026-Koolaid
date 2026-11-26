@@ -13,12 +13,14 @@ Order port numbers, ex:
 
 
 class CAN(Immutable):
-   arm_motor = 1
-   slide_motor = 2
+    arm_motor = 1
+    slide_motor = 2
+
 
 class PWM(Immutable):
     grabber_motor = 1
     funnel_servo = 2
+
 
 class DIO(Immutable):
     arm_switch_up = 1
